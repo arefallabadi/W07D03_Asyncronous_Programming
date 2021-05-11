@@ -30,7 +30,7 @@ const readFile = () => {
       );
       };
 
-      writeFile()
+    //   writeFile()
 
 //Q4
   const getPost = (id) => {
@@ -58,16 +58,34 @@ const readFile = () => {
   //Practice 
   //Q1
   const appendToFile = (data) => {
-    fs.appendFile('./data.txt', " "+'data to append', (err) => {
+    fs.appendFile('./data.txt', ` ${data}`, (err) => {
         if (err) throw err;
         console.log('The "data to append" was appended to file!');
       });
   };
-  appendToFile()
+//   appendToFile()
 
   //Q2
   const copyFile = (fileName) => {
-   fs.copyFile('./data.txt', 'text.txt', ()=>{});
+   fs.copyFile(`${fileName}.txt`, `copy_of_${fileName}.txt`, ()=>{});
+  };
+//   copyFile("data")
+
+
+//Q3
+const post = JSON.stringify({
+    title: "JavaScript Basics",
+    body: "This post contains information about javaScript ",
+    // the id of the user who is going to create the post
+    userId: 1,
+  });
+  const app = express();
+  const port = 3000;
+  const createPost = (post) => {
+    
   };
 
-//   copyFile()
+
+  app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+  });
