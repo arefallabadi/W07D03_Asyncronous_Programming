@@ -45,7 +45,7 @@ const readFile = () => {
           });
   };
   
-
+ //Q5
   const getPostAsync = (data) => {
     app.get('/async', async (req, res) => {
         const response = await axios.get(
@@ -58,5 +58,16 @@ const readFile = () => {
   //Practice 
   //Q1
   const appendToFile = (data) => {
-    // TODO: Your code here
+    fs.appendFile('./data.txt', " "+'data to append', (err) => {
+        if (err) throw err;
+        console.log('The "data to append" was appended to file!');
+      });
   };
+  appendToFile()
+
+  //Q2
+  const copyFile = (fileName) => {
+   fs.copyFile('./data.txt', 'text.txt', ()=>{});
+  };
+
+//   copyFile()
