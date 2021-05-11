@@ -76,13 +76,18 @@ const readFile = () => {
 const post = JSON.stringify({
     title: "JavaScript Basics",
     body: "This post contains information about javaScript ",
-    // the id of the user who is going to create the post
     userId: 1,
   });
   const app = express();
   const port = 3000;
   const createPost = (post) => {
-    
+    axios.post("https://jsonplaceholder.typicode.com/posts", post)
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch((err) => {
+      throw err
+    })
   };
 
 
