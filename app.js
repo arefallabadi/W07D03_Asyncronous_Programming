@@ -2,7 +2,7 @@
 //Q1
 const fs = require("fs");
 const axios = require("axios");
-
+const express = require("express")
 //Q2
 
 const readFile = () => {
@@ -19,7 +19,7 @@ const readFile = () => {
 //Q3
   const writeFile = () => {
     fs.writeFile(
-        './test.txt',
+        './text.txt',
         `A new file has been created`
       ,
         (err) => {
@@ -29,16 +29,34 @@ const readFile = () => {
         }
       );
       };
+
       writeFile()
 
 //Q4
   const getPost = (id) => {
-      
+        axios
+          .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+          .then((response) => {
+            console.log('DATA:', response.data);
+            res.json(response.data);
+          })
+          .catch((error) => {
+            console.log('ERR:', error);
+          });
   };
   
 
   const getPostAsync = (data) => {
-    
+    app.get('/async', async (req, res) => {
+        const response = await axios.get(
+          'https://jsonplaceholder.typicode.com/posts/1'
+        );
+        res.json(response.data)
+      });
   };
 
-  //Prae
+  //Practice 
+  //Q1
+  const appendToFile = (data) => {
+    // TODO: Your code here
+  };
